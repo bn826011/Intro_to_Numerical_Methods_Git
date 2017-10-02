@@ -3,7 +3,11 @@
 Created on Tue Sep 26 14:20:45 2017
 
 @author: bn826011
+
+File contains function to integrate arbitrary function between specified
+endpoints, and specific functions to use as an input
 """
+
 from __future__ import division
 import numpy as np
 
@@ -25,8 +29,11 @@ def integratef(f,a, b, gridpoints):
         
         Sum += f(midpoint)
         
+    # Loops over gridpoints and sums contributions to integral
     
     Sum /= gridpoints
+    
+    # Scales according to width
     
     return Sum
     
