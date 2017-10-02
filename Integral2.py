@@ -17,11 +17,20 @@ def integratef(f,a, b, gridpoints):
     "With gridpoints gridpoints"
     "Using one point Gaussian quadrature"
     
+    if not(isinstance(gridpoints, int)):
+        raise TypeError('Argument gridpoints must be an integer')
+    
     Sum = 0
     
     intervalwidth = (b-a)/gridpoints
     
     # Number of gridpoints to get resolution res
+    
+    if intervalwidth != 0:
+        break
+    else:
+        raise Exception("The interval width is zero, so numerical integration will fail")
+    
     
     for counter in xrange(gridpoints):
         
