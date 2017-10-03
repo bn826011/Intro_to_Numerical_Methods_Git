@@ -32,6 +32,7 @@ def integratef(f,a, b, gridpoints):
         raise Exception("The interval width is zero, so numerical integration will fail")
     
     
+    
     for counter in xrange(gridpoints):
         
         midpoint = a + (counter+1/2)*intervalwidth
