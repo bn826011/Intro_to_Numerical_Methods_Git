@@ -20,7 +20,16 @@ def integratef(f,a, b, gridpoints):
     if not(isinstance(gridpoints, int)):
         raise TypeError('Argument gridpoints must be an integer')
     
+    if not(isinstance(a, float)):  
+        a = float(a)
+        
+    if not(isinstance(b, float)):
+        b = float(b)
+        
+    # So I don't need to raise exception
+    
     Sum = 0
+    
     
     intervalwidth = (b-a)/gridpoints
     
