@@ -16,14 +16,11 @@ def integratef(f,a, b, gridpoints):
     "Between limits a and b"
     "With gridpoints gridpoints"
     "Using one point Gaussian quadrature"
-    
-    if not(isinstance(gridpoints, int)):
-        raise TypeError('Argument gridpoints must be an integer')
         
     if not(callable(f)):
         raise Exception('A callable function must be sent to be integrated')
         
-    
+    # Raise exception if first argument is not callable function
     
     if not(isinstance(a, float)):  
         a = float(a)
@@ -31,20 +28,22 @@ def integratef(f,a, b, gridpoints):
     if not(isinstance(b, float)):
         b = float(b)
         
-    # So I don't need to raise exception
+    if not(isinstance(gridpoints, int)):
+        gridpoints = int(gridpoints)
+        
+    # Ensure arguments are of appropriate Type to avoid need for TypeError
     
-    Sum = 0
-    
+    Sum = 0 # initialise
     
     intervalwidth = (b-a)/gridpoints
     
-    # Number of gridpoints to get resolution res
+    # Distance between adjacent gridpoints
     
     if intervalwidth != 0:
-        break
+        pass
     else:
-        raise Exception("The interval width is zero, so numerical integration will fail")
-    
+        raise Exception("The interval width is zero, so numerical integration \
+        will fail")
     
     
     for counter in xrange(gridpoints):
@@ -55,9 +54,9 @@ def integratef(f,a, b, gridpoints):
         
     # Loops over gridpoints and sums contributions to integral
     
-    Sum /= gridpoints
+    Sum *= intervalwidth
     
-    # Scales according to width
+    # Scales according to width of interval
     
     return Sum
     
