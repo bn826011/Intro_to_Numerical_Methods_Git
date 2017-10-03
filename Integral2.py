@@ -19,6 +19,11 @@ def integratef(f,a, b, gridpoints):
     
     if not(isinstance(gridpoints, int)):
         raise TypeError('Argument gridpoints must be an integer')
+        
+    if not(callable(f)):
+        raise Exception('A callable function must be sent to be integrated')
+        
+    
     
     Sum = 0
     
