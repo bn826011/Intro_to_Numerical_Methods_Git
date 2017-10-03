@@ -48,7 +48,6 @@ def integratef(f,a, b, gridpoints):
     return Sum
     
     
-    
 def f(x):
     "Function of a single variable"
     "Unhelpfully named"
